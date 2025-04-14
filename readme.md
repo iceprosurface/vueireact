@@ -135,6 +135,46 @@ function App() {
 export default App;
 ```
 
+### default slot 
+
+```tsx
+function DefaultSlot(props: {
+  children: JSX.Element[]
+}) {
+  return () => <div>{props.children}</div>
+}
+
+function App() {
+  return () => <DefaultSlot>
+    <div>Hello</div>
+  </DefaultSlot>
+}
+export default App;
+```
+
+### Named Slot
+
+```tsx 
+function NamedSlot(props: {
+  children: {
+    named: () => JSX.Element
+  }
+}) {
+  return () => <div>{props.children.named()}</div>
+}
+
+function App() {
+  return () => <NamedSlot>
+    {
+      {
+        named: () => <div>Hello</div>,
+      }
+    }
+  </NamedSlot>
+}
+export default App;
+```
+
 ## Contributing
 
 Issues and PRs are welcome to improve this project.
