@@ -12,7 +12,7 @@ permissions:
 
 jobs:
   publish:
-    if: github.repository == 'vitest-dev/vitest'
+    if: github.repository == 'iceprosurface/vueireact'
     runs-on: ubuntu-latest
     environment: Release
     steps:
