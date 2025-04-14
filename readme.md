@@ -1,19 +1,28 @@
-# vueireact
+# VueIReact
 
-Use react syntax in vue.
+[![npm version](https://img.shields.io/npm/v/vueireact-core.svg)](https://www.npmjs.com/package/vueireact-core)
+[![license](https://img.shields.io/npm/l/vueireact-core.svg)](https://github.com/vueireact/vueireact/blob/main/LICENSE)
 
-I like react syntax, but i use Vue more, but functional components in React are also sweet with Typescript, and vue was not pretter with Typescript, why not to use them together with some sweet syntax?
+A lightweight library for writing Vue applications using React syntax.
 
-# How to use
+I appreciate React's syntax, though I primarily use Vue. React's functional components work beautifully with TypeScript, whereas Vue historically hasn't been as elegant with TypeScript. Why not combine the best of both worlds with a sweet syntax?
+
+## Features
+
+- ✨ Use familiar React functional component syntax
+- 🔄 Seamless integration with Vue's reactivity system
+- 🧩 Type safety with perfect TypeScript support
+- 🛠️ Compatible with the Vue ecosystem
+
+## Installation
 
 ```bash
 npm install vueireact-core
 ```
 
+## Configuration
 
-## settings
-
-1. remove vue plugin in vite config
+### 1. Remove Vue plugin from Vite config
 
 ```diff
 // vite.config.ts
@@ -25,7 +34,7 @@ export default defineConfig({
 })
 ```
 
-2. add ts config
+### 2. Configure TypeScript
 
 ```diff 
 // tsconfig.json
@@ -39,7 +48,9 @@ export default defineConfig({
 }
 ```
 
-## use functional components
+## Usage Examples
+
+### Basic Functional Component
 
 ```tsx
 import { ref } from 'vue'
@@ -59,7 +70,7 @@ function App() {
 export default App;
 ```
 
-register the component in main.ts
+### Register Component in main.ts
 
 ```ts
 import { createApp } from 'vue'
@@ -67,13 +78,14 @@ import App from './App.tsx'
 
 createApp({
   render() {
-    // note: you should never use App directly in createApp, createApp will use as vue type functional component, instead of react type functional component
+    // Note: Never use App directly in createApp
+    // createApp will treat it as a Vue type functional component, not a React type functional component
     return <App />
   }
 }).mount('#app')
 ```
 
-## generic component
+### Generic Component
 
 ```tsx
 function GenericComponent<T>(props: {
@@ -96,7 +108,7 @@ function App() {
 export default App;
 ```
 
-## expose
+### Exposing Component Instance Properties and Methods
 
 ```tsx
 function ExposeFeature(_: any, ctx: {
@@ -116,9 +128,17 @@ function App() {
   const notMatch = ref(false)
   return () => <>
     <ExposeFeature ref={instance} />
-    {/* this will throw error */}
+    {/* This will throw an error */}
     <ExposeFeature ref={notMatch} />
   </>
 }
 export default App;
 ```
+
+## Contributing
+
+Issues and PRs are welcome to improve this project.
+
+## License
+
+[MIT](LICENSE)
