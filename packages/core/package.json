@@ -5,6 +5,9 @@
     "build": "tsc",
     "dev": "tsc --watch"
   },
+  "files": [
+    "dist"
+  ],
   "exports": {
     "./jsx-runtime": {
       "import": "./dist/jsx-runtime.js",
