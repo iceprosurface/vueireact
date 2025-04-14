@@ -3,8 +3,15 @@
   "private": true,
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "scripts": {
+    "build": "pnpm -r build",
+    "dev": "pnpm -r dev"
+  },
+  "engines": {
+    "node": ">=18.17.0",
+    "pnpm": ">=9.12.2"
+  }
 }
