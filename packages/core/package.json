@@ -1,0 +1,35 @@
+{
+  "name": "@vueireact/core",
+  "version": "0.0.1",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch"
+  },
+  "exports": {
+    "./jsx-runtime": {
+      "import": "./dist/jsx-runtime.js",
+      "types": "./dist/jsx-runtime.d.ts"
+    },
+    "./vue-jsx-runtime": {
+      "import": "./dist/vue-jsx-runtime.js",
+      "types": "./dist/vue-jsx-runtime.d.ts"
+    },
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./*": {
+      "import": "./dist/*"
+    }
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "vue": "^3.5.13"
+  },
+  "peerDependencies": {
+    "vue": "^3.5.13"
+  }
+}
