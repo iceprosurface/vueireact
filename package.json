@@ -8,6 +8,7 @@
   "license": "ISC",
   "scripts": {
     "build": "pnpm -r build",
+    "publish-ci": "tsx scripts/publish-ci.ts",
     "dev": "pnpm -r dev"
   },
   "engines": {
@@ -17,5 +18,8 @@
   "packageManager": "pnpm@10.8.0",
   "devDependencies": {
     "changelogithub": "^13.13.0"
+  },
+  "dependencies": {
+    "zx": "^8.5.2"
   }
 }
