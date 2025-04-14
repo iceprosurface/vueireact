@@ -7,7 +7,7 @@ I like react syntax, but i use Vue more, but functional components in React are 
 # How to use
 
 ```bash
-npm install @vueireact/core
+npm install vueireact-core
 ```
 
 
@@ -32,9 +32,9 @@ export default defineConfig({
 {
   "compilerOptions": {
 -   "jsx": "preserve",
--    "jsxImportSource": "@vueireact/core",
+-    "jsxImportSource": "vueireact-core",
 +   "jsx": "react-jsx",
-+   "jsxImportSource": "@vueireact/core",
++   "jsxImportSource": "vueireact-core",
   }
 }
 ```

@@ -1,6 +1,7 @@
 {
-  "name": "@vueireact/core",
+  "name": "vueireact-core",
   "version": "0.0.4",
+  "private": false,
   "scripts": {
     "build": "tsc",
     "dev": "tsc --watch"

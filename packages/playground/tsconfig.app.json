@@ -10,7 +10,7 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
     "jsx": "react-jsx",
-    "jsxImportSource": "@vueireact/core",
+    "jsxImportSource": "vueireact-core",
   },
   "include": ["src/**/*"]
 }
