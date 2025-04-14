@@ -4,6 +4,7 @@
   "version": "0.0.3",
   "description": "",
   "keywords": [],
+  "type": "module",
   "author": "",
   "license": "ISC",
   "scripts": {
@@ -20,6 +21,7 @@
   "devDependencies": {
     "changelogithub": "^13.13.0",
     "tsx": "^4.19.3",
+    "bumpp": "^10.1.0",
     "tinyglobby": "^0.2.12",
     "zx": "^8.5.2"
   }
