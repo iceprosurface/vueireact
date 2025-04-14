@@ -12,6 +12,10 @@
   },
   "engines": {
     "node": ">=18.17.0",
-    "pnpm": ">=9.12.2"
+    "pnpm": "10.8.0"
+  },
+  "packageManager": "pnpm@10.8.0",
+  "devDependencies": {
+    "changelogithub": "^13.13.0"
   }
 }
