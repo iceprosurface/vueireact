@@ -1,14 +1,16 @@
 {
   "name": "vueireact",
   "private": true,
-  "version": "1.0.0",
+  "version": "0.0.3",
   "description": "",
   "keywords": [],
+  "type": "module",
   "author": "",
   "license": "ISC",
   "scripts": {
     "build": "pnpm -r build",
     "publish-ci": "tsx scripts/publish-ci.ts",
+    "release": "tsx scripts/release.ts",
     "dev": "pnpm -r dev"
   },
   "engines": {
@@ -17,9 +19,10 @@
   },
   "packageManager": "pnpm@10.8.0",
   "devDependencies": {
-    "changelogithub": "^13.13.0"
-  },
-  "dependencies": {
+    "changelogithub": "^13.13.0",
+    "tsx": "^4.19.3",
+    "bumpp": "^10.1.0",
+    "tinyglobby": "^0.2.12",
     "zx": "^8.5.2"
   }
 }
