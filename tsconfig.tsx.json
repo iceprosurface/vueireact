@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "composite": true
+  },
+  "include": [
+    "packages/*/src/**/*.tsx",
+    "packages/*/__tests__/**/*.tsx"
+  ]
+}

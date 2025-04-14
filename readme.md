@@ -96,3 +96,29 @@ function App() {
 export default App;
 ```
 
+## expose
+
+```tsx
+function ExposeFeature(_: any, ctx: {
+  expose: {
+    name: string
+  }
+}) {
+  const name = ref('ExposeFeature')
+  defineExpose(ctx, {
+    name
+  })
+  return () => <div>{name.value}</div>
+}
+
+function App() {
+  const instance = useRef(ExposeFeature)
+  const notMatch = ref(false)
+  return () => <>
+    <ExposeFeature ref={instance} />
+    {/* this will throw error */}
+    <ExposeFeature ref={notMatch} />
+  </>
+}
+export default App;
+```

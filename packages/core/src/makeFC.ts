@@ -1,5 +1,5 @@
 import { defineComponent } from "vue";
-export function makeFC<Props, SetupContext>(functionComponent: (props: Props, Ctx: SetupContext) => any) {
+export function makeFC<Props, SetupContext>(functionComponent: (props: Props, Ctx: SetupContext) => any): ReturnType<typeof defineComponent> {
   return defineComponent({
     setup(_, ctx) {
       const attrs = ctx.attrs;

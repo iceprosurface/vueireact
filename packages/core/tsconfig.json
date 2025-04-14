@@ -1,17 +1,13 @@
 {
-  "extends": "../../tsconfig.json",
+  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
+    "tsBuildInfoFile": "node_modules/.tmp/tsconfig.tsbuildinfo",
+    "baseUrl": ".",
     "outDir": "./dist",
-    "rootDir": "./src",
-    "lib": ["ESNext", "DOM"],
     "module": "ESNext",
     "moduleResolution": "bundler",
-    "target": "ESNext",
-    "isolatedModules": true,
-    "esModuleInterop": true,
-    "declaration": true,
-    "declarationMap": true,
-    "sourceMap": true,
+    "rootDir": "./src"
   },
-  "include": ["src/**/*"]
+  "include": ["./src/**/*"],
+  "exclude": ["__tests__/**"]
 }

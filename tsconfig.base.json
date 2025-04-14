@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "isolatedDeclarations": true,
+    "lib": ["ESNext", "DOM"]
+  },
+}

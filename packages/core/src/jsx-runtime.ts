@@ -1,6 +1,6 @@
 import './vue-jsx-runtime';
-import { jsxs, jsx } from './jsx-render';
-export const jsxDEV = jsx;
-export const jsxsDEV = jsxs;
+import { jsxs, jsx, RenderType, Fragment } from './jsx-render';
+export const jsxDEV: RenderType = jsx;
+export const jsxsDEV: RenderType = jsxs;
 
-export { jsxs, jsx };
+export { jsxs, jsx, Fragment };

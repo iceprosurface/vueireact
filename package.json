@@ -11,7 +11,8 @@
     "build": "pnpm -r build",
     "publish-ci": "tsx scripts/publish-ci.ts",
     "release": "tsx scripts/release.ts",
-    "dev": "pnpm -r dev"
+    "dev": "pnpm -r dev",
+    "test": "vitest"
   },
   "engines": {
     "node": ">=18.17.0",
@@ -19,10 +20,15 @@
   },
   "packageManager": "pnpm@10.8.0",
   "devDependencies": {
-    "changelogithub": "^13.13.0",
-    "tsx": "^4.19.3",
+    "@vue/test-utils": "^2.4.6",
     "bumpp": "^10.1.0",
+    "changelogithub": "^13.13.0",
+    "jsdom": "^26.1.0",
     "tinyglobby": "^0.2.12",
+    "tsx": "^4.19.3",
+    "vite": "^6.2.6",
+    "vitest": "^3.1.1",
+    "vue": "^3.5.13",
     "zx": "^8.5.2"
   }
 }

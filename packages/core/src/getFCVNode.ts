@@ -17,7 +17,7 @@ function initComponent(tag: any) {
     },
   });
 }
-export function getFCVNode(tag: any) {
+export function getFCVNode(tag: any): any {
   const isInitialized = tag[isInitializedSymbol];
   if (!isInitialized) {
     initComponent(tag);

@@ -1,5 +1,24 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
-  }
+    "jsx": "react-jsx",
+    "jsxImportSource": "vueireact-core",
+    "moduleResolution": "node",
+    "lib": ["ESNext", "DOM"],
+    "paths": {
+      "vueireact-core": [
+        "./packages/core/src"
+      ],
+      "vueireact-core/jsx-runtime": [
+        "./packages/core/src/jsx-runtime"
+      ]
+    },
+  },
+  "references": [
+    {
+      "path": "./tsconfig.lib.json"
+    },
+    {
+      "path": "./tsconfig.tsx.json"
+    }
+  ]
 }
