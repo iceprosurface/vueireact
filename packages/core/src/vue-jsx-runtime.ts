@@ -1,9 +1,11 @@
 /* eslint-disable @typescript-eslint/prefer-ts-expect-error */
 import type { NativeElements, Ref } from 'vue'
 
-type JSXElementConstructor<P, C> = ((props: P, context: C) => () => JSX.Element) | {
-  $props: P
-}
+type JSXElementConstructor<P, C> = ((props: P, context: C) => () => JSX.Element) | (
+  new (...args: any[]) => {
+    $props: P
+  }
+)
 
 type VueJSXElement<P = any, T extends string | JSXElementConstructor<P, any> = string | JSXElementConstructor<P, any>> = {
   type: T;
