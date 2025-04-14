@@ -1,6 +1,6 @@
 {
   "name": "@vueireact/core",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "scripts": {
     "build": "tsc",
     "dev": "tsc --watch"
