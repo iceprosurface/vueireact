@@ -4,7 +4,7 @@ VueIReact is fully compatible with the Vue ecosystem and can be integrated into 
 
 ## Option 1: Project with Vue Functional Components
 
-For projects that use Vue-style functional components, use the `@vueireact/vite-plugin-vueireact` plugin:
+For projects that use [Vue-style functional components](https://vuejs.org/guide/extras/render-function#typing-functional-components), should use the `@vueireact/vite-plugin-vueireact` plugin:
 
 1. React-style components should have filenames ending with `.fc.tsx`
 2. Configure Vite:
@@ -24,9 +24,11 @@ export default defineConfig({
 })
 ```
 
+then, Just configure TypeScript as described in the [Configuration section](./getting-started#2-configure-typescript).
+
 ## Option 2: Using in Pure Vue Projects
 
-Just configure TypeScript as described in the Configuration section.
+Just configure TypeScript as described in the [Configuration section](./getting-started#2-configure-typescript).
 
 ## Option 3: Using React-style Components in `.vue` Files
 
