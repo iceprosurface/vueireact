@@ -12,15 +12,4 @@ export default defineConfig({
     vue(),
     Inspect()
   ],
-  esbuild: {
-    loader: 'tsx',
-    jsx: 'preserve',
-    jsxImportSource: 'vue',
-    tsconfigRaw: {
-      compilerOptions: {
-        jsx: 'preserve',
-        jsxImportSource: 'vue',
-      },
-    },
-  },
 })

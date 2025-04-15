@@ -196,20 +196,14 @@ import { HelloWorld } from './App.fc';
 ```ts
 import vue from '@vitejs/plugin-vue'
 import vueireact from 'vite-plugin-vueireact'
-
+import vueJsx from '@vitejs/plugin-vue-jsx'
 export default defineConfig({
-  plugins: [vue(), vueireact()],
-  esbuild: {
-    loader: 'tsx',
-    jsx: 'preserve',
-    jsxImportSource: 'vue',
-    tsconfigRaw: {
-      compilerOptions: {
-        jsx: 'preserve',
-        jsxImportSource: 'vue',
-      },
-    },
-  },
+  plugins: [
+    // 必须放置在第一个
+    vueireact(),
+    vue(), 
+    vueJsx()
+  ],
 })
 ```
 
