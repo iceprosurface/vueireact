@@ -16,7 +16,8 @@ export default defineConfig({
         text: 'Guide',
         items: [
           { text: 'Getting Started', link: '/guide/getting-started' },
-          { text: 'Advanced Components', link: '/guide/advanced-components' }
+          { text: 'Advanced Components', link: '/guide/advanced-components' },
+          { text: 'Using in Existing Projects', link: '/guide/existing-projects' }
         ]
       }
     ],
