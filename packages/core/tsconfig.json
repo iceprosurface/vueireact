@@ -1,7 +1,7 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "tsBuildInfoFile": "node_modules/.tmp/tsconfig.tsbuildinfo",
+    "tsBuildInfoFile": "dist/tsconfig.tsbuildinfo",
     "baseUrl": ".",
     "outDir": "./dist",
     "module": "ESNext",
