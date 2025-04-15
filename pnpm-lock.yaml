@@ -74,7 +74,7 @@ importers:
         version: link:../core
       '@vueireact/vite-plugin-vueireact':
         specifier: workspace:*
-        version: link:../@vueireact/vite-plugin-vueireact
+        version: link:../vite-plugin-vueireact
       typescript:
         specifier: ~5.7.2
         version: 5.7.3
@@ -85,7 +85,7 @@ importers:
         specifier: ^2.2.4
         version: 2.2.8(typescript@5.7.3)
 
-  packages/@vueireact/vite-plugin-vueireact:
+  packages/vite-plugin-vueireact:
     dependencies:
       esbuild:
         specifier: ^0.25.2
