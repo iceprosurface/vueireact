@@ -1,10 +1,13 @@
-import { DefineComponent, defineComponent } from "vue";
+import { DefineComponent } from "vue";
+import { makeFC } from "./makeFC";
 
 export function toVue<Props, SetupContext>(component: (props: Props, ctx: SetupContext) => () => JSX.Element): DefineComponent<Props, SetupContext> {
-  return defineComponent({
-    setup(props, ctx) {
-      const render = component(props as any, ctx as any);
-      return render;
-    }
-  }) as any;
+  return makeFC(component) as any;
+}
+export function toVues<FCRecord extends Record<string, (props: any, ctx: any) => () => JSX.Element>>(components: FCRecord): {
+  [K in keyof FCRecord]: FCRecord[K] extends (props: infer P, ctx: any) => () => JSX.Element ? DefineComponent<P, any> : never
+} {
+  return {
+    ...Object.fromEntries(Object.entries(components).map(([key, value]) => [key, toVue(value)])) as any,
+  }
 }

@@ -1,6 +1,6 @@
 import { ref } from "vue";
 
-function HelloWorld(props: {
+export function HelloWorld(props: {
   name: string, onClick: () => void; children: {
     named: () => JSX.Element
   }

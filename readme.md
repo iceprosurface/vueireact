@@ -177,6 +177,88 @@ function App() {
 export default App;
 ```
 
+## use in existing project
+
+vueireact-core is fully compatible with the Vue ecosystem, so you can use it in existing project.
+
+### 1. The Project has Vue type Functional Component
+
+vueireact-core cannnot determine which type of functional component is used, so we should use 'vite-plugin-vueireact' to transform the code.
+
+In that case, any react type vue functional component should end with `.fc.tsx`
+
+```tsx
+import { HelloWorld } from './App.fc';
+```
+
+### 1.1 setup vite config
+
+```ts
+import vue from '@vitejs/plugin-vue'
+import vueireact from 'vite-plugin-vueireact'
+
+export default defineConfig({
+  plugins: [vue(), vueireact()],
+  esbuild: {
+    loader: 'tsx',
+    jsx: 'preserve',
+    jsxImportSource: 'vue',
+    tsconfigRaw: {
+      compilerOptions: {
+        jsx: 'preserve',
+        jsxImportSource: 'vue',
+      },
+    },
+  },
+})
+```
+
+### 1.2 setup tsconfig
+
+```ts
+{
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "vueireact-core",
+  }
+}
+```
+
+### 2. The project is fully Vue type
+
+In that case, you can just use tsconfig as the first section setup.
+
+```ts 
+{
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "vueireact-core",
+  }
+}
+```
+
+### 3. Use react type vue functional component in `.vue` file
+
+```tsx
+import { toVues } from 'vueireact-core'
+function HelloWorld() {
+  return () => <div>Hello World</div>
+}
+export default toVues({
+  HelloWorld
+})
+```
+
+```vue
+<script lang="tsx">
+import App from './App.fc';
+const { HelloWorld } = App;
+</script>
+<template>
+  <HelloWorld />
+</template>
+```
+
 ## Contributing
 
 Issues and PRs are welcome to improve this project.

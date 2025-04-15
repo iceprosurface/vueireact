@@ -177,6 +177,88 @@ function App() {
 export default App;
 ```
 
+## 在现有项目中使用
+
+vueireact-core 完全兼容 Vue 生态系统，所以你可以在现有项目中使用它。
+
+### 1. 项目中有 Vue 类型的函数式组件
+
+vueireact-core 无法确定使用的是哪种写法的函数式组件，所以我们需要使用 'vite-plugin-vueireact' 来转换代码。
+
+在这种情况下，任何 React 写法的 Vue 函数式组件都应该以 `.fc.tsx` 结尾
+
+```tsx
+import { HelloWorld } from './App.fc';
+```
+
+### 1.1 配置 Vite
+
+```ts
+import vue from '@vitejs/plugin-vue'
+import vueireact from 'vite-plugin-vueireact'
+
+export default defineConfig({
+  plugins: [vue(), vueireact()],
+  esbuild: {
+    loader: 'tsx',
+    jsx: 'preserve',
+    jsxImportSource: 'vue',
+    tsconfigRaw: {
+      compilerOptions: {
+        jsx: 'preserve',
+        jsxImportSource: 'vue',
+      },
+    },
+  },
+})
+```
+
+### 1.2 配置 TypeScript
+
+```ts
+{
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "vueireact-core",
+  }
+}
+```
+
+### 2. 项目是完全 Vue 类型
+
+在这种情况下，你可以直接使用 tsconfig 配置，不需要配置 vite
+
+```ts 
+{
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "vueireact-core",
+  }
+}
+```
+
+### 3. 在 `.vue` 文件中使用 React 写法的 Vue 函数式组件
+
+```tsx
+import { toVues } from 'vueireact-core'
+function HelloWorld() {
+  return () => <div>Hello World</div>
+}
+export default toVues({
+  HelloWorld
+})
+```
+
+```vue
+<script lang="tsx">
+import App from './App.fc';
+const { HelloWorld } = App;
+</script>
+<template>
+  <HelloWorld />
+</template>
+```
+
 ## Contribution
 
 欢迎提出问题和PR来改进这个项目。

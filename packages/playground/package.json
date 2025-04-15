@@ -5,10 +5,13 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "test": "vue-tsc -b",
     "build": "vue-tsc -b && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@vitejs/plugin-vue-jsx": "^4.1.2",
+    "vite-plugin-inspect": "^11.0.0",
     "vue": "^3.5.13"
   },
   "devDependencies": {
@@ -16,6 +19,7 @@
     "@vue/tsconfig": "^0.7.0",
     "typescript": "~5.7.2",
     "vite": "^6.2.6",
+    "vite-plugin-vueireact": "workspace:*",
     "vue-tsc": "^2.2.4",
     "vueireact-core": "workspace:*"
   }

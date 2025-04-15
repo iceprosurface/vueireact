@@ -1,9 +1,9 @@
 import { createApp } from 'vue'
 import './style.css'
-import App from './App'
+import TestComponent from './TestComponent.vue'
 
 createApp({
   render() {
-    return <App />
+    return <TestComponent />
   }
 }).mount('#app')

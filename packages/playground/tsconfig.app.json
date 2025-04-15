@@ -12,5 +12,5 @@
     "jsx": "react-jsx",
     "jsxImportSource": "vueireact-core",
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*.vue", "src/**/*.ts", "src/**/*.tsx"]
 }

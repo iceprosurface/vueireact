@@ -16,11 +16,14 @@ type VueJSXElement<P = any, T extends string | JSXElementConstructor<P, any> = s
 type JsxChild = JSX.Element[] | JSX.Element | string | number | null | undefined;
 type JsxChildren = Array<JsxChild>;
 type Children = JsxChildren | JsxChild;
+export interface GlobalDirectives {
+  
+}
 
 type NativeElements = {
   [K in keyof IntrinsicElementAttributes]: IntrinsicElementAttributes[K] & ReservedProps & {
     children?: Children;
-  };
+  } & GlobalDirectives;
 };
 declare global {
   namespace JSX {
@@ -48,7 +51,7 @@ declare global {
     }
 
     // ReservedProps
-    export interface IntrinsicAttributes {
+    export interface IntrinsicAttributes extends GlobalDirectives {
       key?: string;
     }
   }
