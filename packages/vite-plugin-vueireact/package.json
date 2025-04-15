@@ -1,8 +1,9 @@
 {
-  "name": "vite-plugin-vueireact",
+  "name": "@vueireact/vite-plugin-vueireact",
   "version": "0.0.9",
   "description": "Vite plugin for Vue-IReact",
   "author": "iceprosurface",
+  "private": false,
   "license": "MIT",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",

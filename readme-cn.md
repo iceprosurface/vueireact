@@ -1,7 +1,7 @@
 # VueIReact
 
-[![npm version](https://img.shields.io/npm/v/vueireact-core.svg)](https://www.npmjs.com/package/vueireact-core)
-[![license](https://img.shields.io/npm/l/vueireact-core.svg)](https://github.com/vueireact/vueireact/blob/main/LICENSE)
+[![npm version](https://img.shields.io/npm/v/@vueireact/core.svg)](https://www.npmjs.com/package/@vueireact/core)
+[![license](https://img.shields.io/npm/l/@vueireact/core.svg)](https://github.com/vueireact/vueireact/blob/main/LICENSE)
 
 简体中文 | [English](./readme.md)
 
@@ -19,7 +19,7 @@
 ## 安装
 
 ```bash
-npm install vueireact-core
+npm install @vueireact/core
 ```
 
 ## 配置
@@ -43,9 +43,9 @@ export default defineConfig({
 {
   "compilerOptions": {
 -   "jsx": "preserve",
--    "jsxImportSource": "vueireact-core",
+-    "jsxImportSource": "@vueireact/core",
 +   "jsx": "react-jsx",
-+   "jsxImportSource": "vueireact-core",
++   "jsxImportSource": "@vueireact/core",
   }
 }
 ```
@@ -179,11 +179,11 @@ export default App;
 
 ## 在现有项目中使用
 
-vueireact-core 完全兼容 Vue 生态系统，所以你可以在现有项目中使用它。
+@vueireact/core 完全兼容 Vue 生态系统，所以你可以在现有项目中使用它。
 
 ### 1. 项目中有 Vue 类型的函数式组件
 
-vueireact-core 无法确定使用的是哪种写法的函数式组件，所以我们需要使用 'vite-plugin-vueireact' 来转换代码。
+@vueireact/core 无法确定使用的是哪种写法的函数式组件，所以我们需要使用 '@vueireact/vite-plugin-vueireact' 来转换代码。
 
 在这种情况下，任何 React 写法的 Vue 函数式组件都应该以 `.fc.tsx` 结尾
 
@@ -195,7 +195,7 @@ import { HelloWorld } from './App.fc';
 
 ```ts
 import vue from '@vitejs/plugin-vue'
-import vueireact from 'vite-plugin-vueireact'
+import vueireact from '@vueireact/vite-plugin-vueireact'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 export default defineConfig({
   plugins: [
@@ -213,7 +213,7 @@ export default defineConfig({
 {
   "compilerOptions": {
     "jsx": "react-jsx",
-    "jsxImportSource": "vueireact-core",
+    "jsxImportSource": "@vueireact/core",
   }
 }
 ```
@@ -226,7 +226,7 @@ export default defineConfig({
 {
   "compilerOptions": {
     "jsx": "react-jsx",
-    "jsxImportSource": "vueireact-core",
+    "jsxImportSource": "@vueireact/core",
   }
 }
 ```
@@ -234,7 +234,7 @@ export default defineConfig({
 ### 3. 在 `.vue` 文件中使用 React 写法的 Vue 函数式组件
 
 ```tsx
-import { toVues } from 'vueireact-core'
+import { toVues } from '@vueireact/core'
 function HelloWorld() {
   return () => <div>Hello World</div>
 }

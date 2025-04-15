@@ -7,7 +7,7 @@
 </template>
 
 <script lang="tsx" setup>
-import { toVues } from 'vueireact-core';
+import { toVues } from '@vueireact/core';
 import { HelloWorld } from './App.fc';
 
 const { HelloWorld: HelloWorldVue } = toVues({

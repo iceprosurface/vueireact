@@ -9,7 +9,7 @@ export default defineConfig({
     tsconfigRaw: {
       compilerOptions: {
         jsx: 'react-jsx',
-        jsxImportSource: 'vueireact-core',
+        jsxImportSource: '@vueireact/core',
       }
     }
   }

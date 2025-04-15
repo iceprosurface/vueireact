@@ -19,8 +19,8 @@
     "@vue/tsconfig": "^0.7.0",
     "typescript": "~5.7.2",
     "vite": "^6.2.6",
-    "vite-plugin-vueireact": "workspace:*",
+    "@vueireact/vite-plugin-vueireact": "workspace:*",
     "vue-tsc": "^2.2.4",
-    "vueireact-core": "workspace:*"
+    "@vueireact/core": "workspace:*"
   }
 }

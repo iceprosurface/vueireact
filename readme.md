@@ -1,7 +1,7 @@
 # VueIReact
 
-[![npm version](https://img.shields.io/npm/v/vueireact-core.svg)](https://www.npmjs.com/package/vueireact-core)
-[![license](https://img.shields.io/npm/l/vueireact-core.svg)](https://github.com/vueireact/vueireact/blob/main/LICENSE)
+[![npm version](https://img.shields.io/npm/v/@vueireact/core.svg)](https://www.npmjs.com/package/@vueireact/core)
+[![license](https://img.shields.io/npm/l/@vueireact/core.svg)](https://github.com/vueireact/vueireact/blob/main/LICENSE)
 
 [简体中文](./readme-cn.md) | English
 
@@ -19,7 +19,7 @@ I appreciate React's syntax, though I primarily use Vue. React's functional comp
 ## Installation
 
 ```bash
-npm install vueireact-core
+npm install @vueireact/core
 ```
 
 ## Configuration
@@ -43,9 +43,9 @@ export default defineConfig({
 {
   "compilerOptions": {
 -   "jsx": "preserve",
--    "jsxImportSource": "vueireact-core",
+-    "jsxImportSource": "@vueireact/core",
 +   "jsx": "react-jsx",
-+   "jsxImportSource": "vueireact-core",
++   "jsxImportSource": "@vueireact/core",
   }
 }
 ```
@@ -179,11 +179,11 @@ export default App;
 
 ## use in existing project
 
-vueireact-core is fully compatible with the Vue ecosystem, so you can use it in existing project.
+@vueireact/core is fully compatible with the Vue ecosystem, so you can use it in existing project.
 
 ### 1. The Project has Vue type Functional Component
 
-vueireact-core cannnot determine which type of functional component is used, so we should use 'vite-plugin-vueireact' to transform the code.
+@vueireact/core cannnot determine which type of functional component is used, so we should use '@vueireact/vite-plugin-vueireact' to transform the code.
 
 In that case, any react type vue functional component should end with `.fc.tsx`
 
@@ -195,7 +195,7 @@ import { HelloWorld } from './App.fc';
 
 ```ts
 import vue from '@vitejs/plugin-vue'
-import vueireact from 'vite-plugin-vueireact'
+import vueireact from '@vueireact/vite-plugin-vueireact'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 export default defineConfig({
   plugins: [
@@ -213,7 +213,7 @@ export default defineConfig({
 {
   "compilerOptions": {
     "jsx": "react-jsx",
-    "jsxImportSource": "vueireact-core",
+    "jsxImportSource": "@vueireact/core",
   }
 }
 ```
@@ -226,7 +226,7 @@ In that case, you can just use tsconfig as the first section setup.
 {
   "compilerOptions": {
     "jsx": "react-jsx",
-    "jsxImportSource": "vueireact-core",
+    "jsxImportSource": "@vueireact/core",
   }
 }
 ```
@@ -234,7 +234,7 @@ In that case, you can just use tsconfig as the first section setup.
 ### 3. Use react type vue functional component in `.vue` file
 
 ```tsx
-import { toVues } from 'vueireact-core'
+import { toVues } from '@vueireact/core'
 function HelloWorld() {
   return () => <div>Hello World</div>
 }

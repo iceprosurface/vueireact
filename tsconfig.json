@@ -1,14 +1,14 @@
 {
   "compilerOptions": {
     "jsx": "react-jsx",
-    "jsxImportSource": "vueireact-core",
+    "jsxImportSource": "@vueireact/core",
     "moduleResolution": "node",
     "lib": ["ESNext", "DOM"],
     "paths": {
-      "vueireact-core": [
+      "@vueireact/core": [
         "./packages/core/src"
       ],
-      "vueireact-core/jsx-runtime": [
+      "@vueireact/core/jsx-runtime": [
         "./packages/core/src/jsx-runtime"
       ]
     },

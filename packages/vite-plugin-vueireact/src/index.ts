@@ -5,7 +5,7 @@ const fileRegex = /\.fc.(jsx|tsx)$/;
 
 export default function vueireactPlugin(): PluginOption {
   return {
-    name: 'vite-plugin-vueireact',
+    name: '@vueireact/vite-plugin-vueireact',
     async transform(src, id) {
       if (fileRegex.test(id)) {
         // TODO: resolve typescript config
@@ -15,7 +15,7 @@ export default function vueireactPlugin(): PluginOption {
           tsconfigRaw: {
             compilerOptions: {
               "jsx": "react-jsx",
-              "jsxImportSource": "vueireact-core",
+              "jsxImportSource": "@vueireact/core",
             },
           },
         });

@@ -1,5 +1,5 @@
 {
-  "name": "vueireact-core",
+  "name": "@vueireact/core",
   "version": "0.0.9",
   "private": false,
   "scripts": {
