@@ -26,7 +26,8 @@ export default defineConfig({
             items: [
               { text: '开始使用', link: '/zh/guide/getting-started' },
               { text: '高级组件', link: '/zh/guide/advanced-components' },
-              { text: '在现有项目中使用', link: '/zh/guide/existing-projects' }
+              { text: '在现有项目中使用', link: '/zh/guide/existing-projects' },
+              { text: '路线图', link: '/zh/guide/roadmap' }
             ]
           }
         ],
@@ -50,7 +51,8 @@ export default defineConfig({
         items: [
           { text: 'Getting Started', link: '/guide/getting-started' },
           { text: 'Advanced Components', link: '/guide/advanced-components' },
-          { text: 'Using in Existing Projects', link: '/guide/existing-projects' }
+          { text: 'Using in Existing Projects', link: '/guide/existing-projects' },
+          { text: 'Roadmap', link: '/guide/roadmap' }
         ]
       }
     ],

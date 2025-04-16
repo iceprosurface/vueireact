@@ -21,7 +21,7 @@ npm install @vueireact/core
 
 ## Configuration
 
-### 1. Remove Vue plugin from Vite config
+### 1. Remove Vue plugin from Vite config (Optional)
 
 ```js
 // vite.config.ts

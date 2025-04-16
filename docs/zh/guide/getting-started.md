@@ -21,7 +21,7 @@ npm install @vueireact/core
 
 ## 配置
 
-### 1. 从 Vite 配置中移除 Vue 插件
+### 1. 从 Vite 配置中移除 Vue 插件（可选）
 
 ```js
 // vite.config.ts
