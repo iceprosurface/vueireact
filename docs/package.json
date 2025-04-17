@@ -15,5 +15,8 @@
   "packageManager": "pnpm@10.8.0",
   "devDependencies": {
     "vitepress": "^1.6.3"
+  },
+  "dependencies": {
+    "@vueireact/repl": "workspace:*"
   }
 }

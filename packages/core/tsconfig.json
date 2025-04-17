@@ -6,10 +6,11 @@
     "outDir": "./dist",
     "module": "ESNext",
     "moduleResolution": "bundler",
-    "rootDir": "./src",
     "forceConsistentCasingInFileNames": true,
     "rewriteRelativeImportExtensions": true,
-    "allowImportingTsExtensions": true
+    "allowImportingTsExtensions": true,
+    "declarationMap": true,
+    "rootDir": "./src"
   },
   "include": ["./src/**/*"],
   "exclude": ["__tests__/**"]

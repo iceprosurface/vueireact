@@ -9,8 +9,11 @@
   },
   "files": [
     "dist",
-    "README.md"
+    "README.md",
+    "jsx-runtime.ts"
   ],
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "exports": {
     "./jsx-runtime": {
       "import": "./dist/jsx-runtime.js",

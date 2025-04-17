@@ -13,9 +13,9 @@ type VueJSXElement<P = any, T extends string | JSXElementConstructor<P, any> = s
   $props: P;
   key: string | null;
 }
-type JsxChild = JSX.Element[] | JSX.Element | string | number | null | undefined;
+type JsxChild = JSX.Element[] | JSX.Element | string | number | boolean | null | undefined;
 type JsxChildren = Array<JsxChild>;
-type Children = JsxChildren | JsxChild;
+export type Children = JsxChildren | JsxChild;
 export interface GlobalDirectives {
   
 }
