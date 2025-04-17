@@ -18,7 +18,8 @@ export default defineConfig({
       themeConfig: {
         nav: [
           { text: '首页', link: '/zh/' },
-          { text: '指南', link: '/zh/guide/getting-started' }
+          { text: '指南', link: '/zh/guide/getting-started' },
+          { text: 'playground', link: 'https://vueireact-repl.vercel.app/' }
         ],
         sidebar: [
           {
@@ -43,7 +44,7 @@ export default defineConfig({
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Guide', link: '/guide/getting-started' },
-      { text: 'Repl', link: 'https://vueireact-repl.vercel.app/' }
+      { text: 'Playground', link: 'https://vueireact-repl.vercel.app/' }
     ],
 
     sidebar: [
