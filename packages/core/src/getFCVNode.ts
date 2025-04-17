@@ -1,4 +1,4 @@
-import { makeFC } from "./makeFC";
+import { makeFC } from "./makeFC.js";
 
 const isInitializedSymbol = Symbol('isInitialized');
 const ComponentSymbol = Symbol('Component');

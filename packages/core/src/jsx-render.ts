@@ -1,5 +1,5 @@
 import { h, mergeProps, Fragment as VueFragment } from "vue";
-import { getFCVNode } from "./getFCVNode";
+import { getFCVNode } from "./getFCVNode.js";
 export type RenderType = (tag: any, props: any) => JSX.Element;
 export const childrenTypeKey = 'normalizedChildrenType';
 export const enum ChildrenType {

@@ -1,5 +1,5 @@
 import { DefineComponent } from "vue";
-import { makeFC } from "./makeFC";
+import { makeFC } from "./makeFC.js";
 
 export function toVue<Props, SetupContext>(component: (props: Props, ctx: SetupContext) => () => JSX.Element): DefineComponent<Props, SetupContext> {
   return makeFC(component) as any;
