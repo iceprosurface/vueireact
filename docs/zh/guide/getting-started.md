@@ -66,6 +66,22 @@ function App() {
 export default App;
 ```
 
+### 使用 withDefaults
+
+```tsx
+import { withDefaults } from '@vueireact/core'
+
+function Button(props: {
+  size: 'small' | 'medium' | 'large',
+  color?: string,
+}) {
+  const { size, color } = withDefaults(props, {
+    color: 'blue',
+  })
+  return () => <button style={{ color }}>{size} Button</button>
+}
+```
+
 ### 在 main.ts 中注册组件
 
 ```ts

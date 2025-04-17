@@ -2,6 +2,7 @@
 
 ## 0.2.0
 
-- Implement defineAsyncComponent
-- Implement v-model
-- Implement REPL 
+- [ ] Implement defineAsyncComponent
+- [ ] Implement v-model
+- [ ] Implement REPL 
+- [x] Implement withDefaults

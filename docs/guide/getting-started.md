@@ -66,6 +66,22 @@ function App() {
 export default App;
 ```
 
+### Using withDefaults
+
+```tsx
+import { withDefaults } from '@vueireact/core'
+
+function Button(props: {
+  size: 'small' | 'medium' | 'large',
+  color?: string,
+}) {
+  const { size, color } = withDefaults(props, {
+    color: 'blue',
+  })
+  return () => <button style={{ color }}>{size} Button</button>
+}
+```
+
 ### Register Component in main.ts
 
 ```ts
