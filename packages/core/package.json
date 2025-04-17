@@ -4,7 +4,8 @@
   "private": false,
   "scripts": {
     "build": "tsc",
-    "dev": "tsc --watch"
+    "dev": "tsc --watch",
+    "test": "vitest --ui"
   },
   "files": [
     "dist",

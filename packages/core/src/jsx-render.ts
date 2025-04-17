@@ -31,12 +31,12 @@ function normalizeChildren(children: any): {
     value: children
   }
 }
-export const jsx: RenderType = (tag: any, props: any): JSX.Element => {
+export const jsx: RenderType = (tag: any, props?: any): JSX.Element => {
   let component = tag
   if (typeof tag === 'function') {
     component = getFCVNode(tag);
   }
-  const { children, ...rest } = props;
+  const { children, ...rest } = props || {};
   const mergedProps = mergeProps(rest);
   if (component === Fragment) {
     return h(component, mergedProps, children) as unknown as JSX.Element;

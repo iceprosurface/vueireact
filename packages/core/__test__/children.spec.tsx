@@ -1,6 +1,6 @@
 import { mount } from "@vue/test-utils";
 import { describe, it, expect } from "vitest";
-import { toVue } from "../src";
+import { jsx, toVue } from "../src";
 
 describe("children", () => {
   it("should be able to render children", () => {
@@ -43,6 +43,10 @@ describe("children", () => {
     };
     const wrapper = mount(toVue(Parent));
     expect(wrapper.html()).toContain('Hello')
+  })
+  it('no props can be passed', () => {
+    const element = jsx('div')
+    expect(element).toBeDefined()
   })
 });
 
