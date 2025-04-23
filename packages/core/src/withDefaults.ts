@@ -26,8 +26,22 @@ export function withDefaults<T extends Record<string, any>, optionalT = PickOpti
     for (const key of [...Reflect.ownKeys(props), ...Reflect.ownKeys(defaults)]) {
       Reflect.set(result, key, Reflect.has(props, key) ? Reflect.get(props, key) : getDefaultValue(defaults[key]))
     }
-    for (const key in defaultReactive) {
-      Reflect.set(defaultReactive, key, getDefaultValue(defaults[key]))
+    for (const key in defaults) {
+      const defaultValue = getDefaultValue(defaults[key]);
+      if (!Reflect.has(props, key) || Reflect.get(props, key) === undefined) {
+        Reflect.set(result, key, defaultValue)
+      }
+      // typeis boolean
+      if (typeof defaultValue === 'boolean') {
+        const currentValue = Reflect.get(props, key)
+        if (currentValue === '') {
+          Reflect.set(result, key, true)
+        } else if (typeof currentValue === 'boolean') {
+          Reflect.set(result, key, currentValue)
+        } else {
+          Reflect.set(result, key, defaultValue ?? false)
+        }
+      }
     }
     for (const key in result) {
       Reflect.set(defaultReactive, key, result[key])

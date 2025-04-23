@@ -2,7 +2,7 @@
 import { createApp, h, ref, watchEffect } from 'vue'
 import { type OutputModes, Repl, useStore, useVueImportMap } from '../src'
 // @ts-ignore
-import MonacoEditor from '../src/editor/MonacoEditor.tsx'
+import MonacoEditor from '../src/editor/MonacoEditor'
 // @ts-ignore
 import CodeMirrorEditor from '../src/editor/CodeMirrorEditor.vue'
 
@@ -51,14 +51,13 @@ const App = {
     window.theme = theme
     const previewTheme = ref(false)
     window.previewTheme = previewTheme
-    return () => <Repl {
-      ...{
+    return () => <Repl {...{
         store,
         theme: theme.value,
         previewTheme: previewTheme.value,
         editor: MonacoEditor,
         // layout: 'vertical',
-        ssr: true,
+        ssr: false,
         // showCompileOutput: false,
         // showImportMap: false
         editorOptions: {

@@ -2,7 +2,7 @@ import SplitPane from './SplitPane'
 import Output from './output/Output.vue'
 import { withDefaults, defineExpose, toVue } from '@vueireact/core'
 import { type Store, useStore } from './store'
-import { computed, provide, shallowRef, toRefs } from 'vue'
+import { computed, onMounted, provide, shallowRef, toRefs } from 'vue'
 import {
   type EditorComponentType,
   injectKeyPreviewRef,
@@ -24,7 +24,6 @@ export interface Props {
   showTsConfig?: boolean
   clearConsole?: boolean
   layout?: 'horizontal' | 'vertical'
-  layoutReverse?: boolean
   ssr?: boolean
   previewOptions?: {
     headHTML?: string
@@ -66,7 +65,6 @@ function Repl(_props: Props & {
     showImportMap: true,
     showTsConfig: true,
     clearConsole: true,
-    layoutReverse: false,
     ssr: false,
     layout: 'horizontal',
     previewOptions: () => ({}),
@@ -74,6 +72,7 @@ function Repl(_props: Props & {
     splitPaneOptions: () => ({}),
     modelValue: true,
   })
+  debugger
 
   const autoSave = useVModel(props, 'modelValue', (event, value) => {
     props['onUpdate:modelValue']?.(value)
@@ -85,10 +84,9 @@ function Repl(_props: Props & {
 
   const outputRef = shallowRef<any>()
 
-  props.store.init()
-
-  const editorSlotName = computed(() => (props.layoutReverse ? 'right' : 'left'))
-  const outputSlotName = computed(() => (props.layoutReverse ? 'left' : 'right'))
+  onMounted(() => {
+    props.store.init()
+  })
 
   provide(injectKeyProps, {
     ...toRefs(props),
@@ -111,8 +109,8 @@ function Repl(_props: Props & {
     <SplitPane layout={props.layout}>
       {
         {
-          [editorSlotName.value]: () => <EditorContainer editorComponent={props.editor} />,
-          [outputSlotName.value]: () => <Output ref={outputRef} editorComponent={props.editor} showCompileOutput={props.showCompileOutput} ssr={!!props.ssr} />
+          left: () => <EditorContainer editorComponent={props.editor} />,
+          right: () => <Output ref={outputRef} editorComponent={props.editor} showCompileOutput={props.showCompileOutput} ssr={!!props.ssr} />
         }
       }
     </SplitPane>

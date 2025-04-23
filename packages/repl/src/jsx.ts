@@ -11,7 +11,7 @@ function once<T>(fn: () => Promise<T>) {
 const init = once(async () => {
   await esbuild.initialize({
     worker: true,
-    wasmURL: "https://unpkg.com/esbuild-wasm/esbuild.wasm",
+    wasmURL: "https://unpkg.com/esbuild-wasm@0.25.3/esbuild.wasm",
   })
 })
 export async function transformJSX(src: string) {

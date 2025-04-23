@@ -168,8 +168,8 @@ importers:
         specifier: ^5.0.0
         version: 5.0.0(conventional-commits-filter@5.0.0)
       esbuild-wasm:
-        specifier: ^0.25.2
-        version: 0.25.2
+        specifier: ^0.25.3
+        version: 0.25.3
       fflate:
         specifier: ^0.8.2
         version: 0.8.2
@@ -1824,8 +1824,8 @@ packages:
     resolution: {integrity: sha512-FGgH2h8zKNim9ljj7dankFPcICIK9Cp5bm+c2gQSYePhpaG5+esrLODihIorn+Pe6FGJzWhXQotPv73jTaldXA==}
     engines: {node: '>= 0.4'}
 
-  esbuild-wasm@0.25.2:
-    resolution: {integrity: sha512-vL9PSK1YFGsvrlYPDxfRxpakIDTe1wCS/JO2D45muxwtd7GR/9+fYRU+K8tKs4ZDXaEy5jr6YqrGgDL/iyufyQ==}
+  esbuild-wasm@0.25.3:
+    resolution: {integrity: sha512-60mFpAU4iQMVIP9tSd5EEbxZUDsqSKAjAJ7r1OK073lG/ctnVidThvbcU+M2B55jMFntCFJlqksubXMpYIcbfg==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -5106,7 +5106,7 @@ snapshots:
     dependencies:
       es-errors: 1.3.0
 
-  esbuild-wasm@0.25.2: {}
+  esbuild-wasm@0.25.3: {}
 
   esbuild@0.21.5:
     optionalDependencies:

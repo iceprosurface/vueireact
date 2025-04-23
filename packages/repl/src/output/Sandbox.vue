@@ -268,6 +268,7 @@ async function updatePreview() {
 
     // if main file is a vue file, mount it.
     if (mainFile.endsWith('.tsx')) {
+      debugger
       codeToEval.push(
         `import { ${
           isSSR ? `createSSRApp` : `createApp`

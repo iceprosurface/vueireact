@@ -135,6 +135,7 @@ export function useStore(
 
     // compile rest of the files
     errors.value = []
+    debugger
     for (const [filename, file] of Object.entries(files.value)) {
       if (filename !== mainFile.value) {
         compileFile(store, file).then((errs) => errors.value.push(...errs))
@@ -352,7 +353,9 @@ export function useStore(
     mainFile.value = Object.keys(files.value)[0]
   }
   activeFilename ||= ref(mainFile.value)
-  const activeFile = computed(() => files.value[activeFilename.value])
+  const activeFile = computed(() => {
+    return files.value[activeFilename.value]
+  })
 
   applyBuiltinImportMap()
 

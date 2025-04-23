@@ -51,7 +51,6 @@ defineExpose({ reload, previewRef })
       <span>{{ m }}</span>
     </button>
   </div>
-
   <div class="output-container">
     <Preview ref="preview" :show="mode === 'preview'" :ssr="ssr" />
     <props.editorComponent

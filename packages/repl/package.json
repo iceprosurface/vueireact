@@ -71,7 +71,7 @@
     "bumpp": "^9.11.1",
     "codemirror": "^5.65.18",
     "conventional-changelog-cli": "^5.0.0",
-    "esbuild-wasm": "^0.25.2",
+    "esbuild-wasm": "^0.25.3",
     "fflate": "^0.8.2",
     "hash-sum": "^2.0.0",
     "monaco-editor-core": "^0.52.2",

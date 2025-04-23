@@ -28,7 +28,7 @@ function MonacoFC(_props: {
     {
       readonly: false,
       value: '',
-      mode: 'js',
+      mode: undefined,
     },
   )
 
@@ -40,16 +40,16 @@ function MonacoFC(_props: {
     theme: replTheme,
     editorOptions,
   } = inject(injectKeyProps)!
-
+  
   initMonaco(store.value)
-
+  
   const lang = computed(() => (props.mode === 'css' ? 'css' : 'javascript'))
-
+  
   let editorInstance: monaco.editor.IStandaloneCodeEditor
   function emitChangeEvent() {
     props.onChange?.(editorInstance.getValue())
   }
-
+  debugger
   onMounted(() => {
     const theme = registerHighlighter()
     if (!containerRef.value) {
@@ -75,7 +75,7 @@ function MonacoFC(_props: {
       ...editorOptions.value.monacoOptions,
     })
     editor.value = editorInstance
-
+  
     // Support for semantic highlighting
     const t = (editorInstance as any)._themeService._theme
     t.semanticHighlighting = true
@@ -98,7 +98,7 @@ function MonacoFC(_props: {
           return { foreground: 0 }
       }
     }
-
+  
     watch(
       () => props.value,
       (value) => {
@@ -107,11 +107,11 @@ function MonacoFC(_props: {
       },
       { immediate: true },
     )
-
+  
     watch(lang, (lang) =>
       monaco.editor.setModelLanguage(editorInstance.getModel()!, lang),
     )
-
+  
     if (!props.readonly) {
       watch(
         () => props.filename,
@@ -124,14 +124,14 @@ function MonacoFC(_props: {
             file.language,
             file.code,
           )
-
+  
           const oldFile = oldFilename ? store.value.files[oldFilename] : null
           if (oldFile) {
             oldFile.editorViewState = editorInstance.saveViewState()
           }
-
+  
           editorInstance.setModel(model)
-
+  
           if (file.editorViewState) {
             editorInstance.restoreViewState(file.editorViewState)
             editorInstance.focus()
@@ -140,11 +140,11 @@ function MonacoFC(_props: {
         { immediate: true },
       )
     }
-
+  
     editorInstance.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyS, () => {
       // ignore save event
     })
-
+  
     watch(
       autoSave,
       (autoSave) => {
@@ -156,7 +156,7 @@ function MonacoFC(_props: {
       },
       { immediate: true },
     )
-
+  
     // update theme
     watch(replTheme, (n) => {
       editorInstance.updateOptions({
@@ -164,10 +164,11 @@ function MonacoFC(_props: {
       })
     })
   })
-
+  
   onBeforeUnmount(() => {
     editor.value?.dispose()
   })
+
   useStyleTag(`.editor {
   position: relative;
   height: 100%;
