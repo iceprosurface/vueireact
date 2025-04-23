@@ -8,7 +8,7 @@ export function makeFC<Props, SetupContext>(functionComponent: (props: Props, Ct
       const proxyProp = new Proxy(attrs, {
         get(target, prop) {
           if (prop === 'children') {
-            switch (attrs[childrenTypeKey]) {
+            switch (Reflect.get(attrs, childrenTypeKey)) {
               case ChildrenType.Default:
                 return ctx.slots?.default?.();
               case ChildrenType.Named:

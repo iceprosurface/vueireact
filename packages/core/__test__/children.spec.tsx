@@ -22,6 +22,22 @@ describe("children", () => {
     const wrapper = mount(toVue(Parent));
     expect(wrapper.html()).toContain('Hello')
   });
+  it('default with function', () => {
+    const Child = (props: {
+      children: () => JSX.Element
+    }) => {
+      return () => <div>{props.children()}</div>;
+    };
+    const Parent = () => {
+      return () => <div>
+        <Child>
+          {() => <div>Hello</div>}
+        </Child>
+      </div>;
+    };
+    const wrapper = mount(toVue(Parent));
+    expect(wrapper.html()).toContain('Hello')
+  })
   it('named slot', () => {
     const Child = (props: {
       children: {
