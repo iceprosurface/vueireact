@@ -5,7 +5,8 @@ export const childrenTypeKey = 'normalizedChildrenType';
 export const enum ChildrenType {
   Default = 'default',
   Named = 'named',
-  Unknown = 'unknown'
+  Unknown = 'unknown',
+  DefaultWithFunction = 'defaultWithFunction'
 }
 function normalizeChildren(children: any): {
   type: ChildrenType
@@ -17,6 +18,12 @@ function normalizeChildren(children: any): {
       value: {
         default: () => children
       }
+    }
+  }
+  if (typeof children === 'function') {
+    return {
+      type: ChildrenType.DefaultWithFunction,
+      value: children
     }
   }
   // is record
@@ -43,7 +50,12 @@ export const jsx: RenderType = (tag: any, props?: any): JSX.Element => {
   }
   if (children) {
     const normalizedChildren = normalizeChildren(children);
-    mergedProps[childrenTypeKey] = normalizedChildren.type;
+    Object.defineProperty(mergedProps, childrenTypeKey, {
+      value: normalizedChildren.type,
+      writable: false,
+      enumerable: false,
+      configurable: false
+    });
     return h(component, mergedProps, normalizedChildren.value) as unknown as JSX.Element;
   }
   return h(component, mergedProps) as unknown as JSX.Element;

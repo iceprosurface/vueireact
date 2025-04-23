@@ -13,6 +13,8 @@ export function makeFC<Props, SetupContext>(functionComponent: (props: Props, Ct
                 return ctx.slots?.default?.();
               case ChildrenType.Named:
                 return ctx.slots;
+              case ChildrenType.DefaultWithFunction:
+                return ctx.slots?.default;
               default:
                 return ctx.slots;
             }
