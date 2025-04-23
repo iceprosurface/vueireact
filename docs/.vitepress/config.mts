@@ -4,7 +4,7 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: "vueireact",
   description: "Vue-IReact is a library that allows you to use React type syntax in Vue.",
-  
+
   locales: {
     root: {
       label: 'English',
@@ -28,6 +28,7 @@ export default defineConfig({
               { text: '开始使用', link: '/zh/guide/getting-started' },
               { text: '高级组件', link: '/zh/guide/advanced-components' },
               { text: '在现有项目中使用', link: '/zh/guide/existing-projects' },
+              { text: '现有问题', link: '/zh/guide/existing-problems' },
               { text: '路线图', link: '/zh/guide/roadmap' }
             ]
           }
@@ -38,7 +39,7 @@ export default defineConfig({
       }
     }
   },
-  
+
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
@@ -54,6 +55,7 @@ export default defineConfig({
           { text: 'Getting Started', link: '/guide/getting-started' },
           { text: 'Advanced Components', link: '/guide/advanced-components' },
           { text: 'Using in Existing Projects', link: '/guide/existing-projects' },
+          { text: 'Existing Problems', link: '/guide/existing-problems' },
           { text: 'Roadmap', link: '/guide/roadmap' }
         ]
       }

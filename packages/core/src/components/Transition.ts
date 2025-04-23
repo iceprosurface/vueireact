@@ -1,6 +1,6 @@
 import { Transition as VueTransition, TransitionProps } from 'vue';
 import { h } from 'vue';
-import type { Children } from './vue-jsx-runtime';
+import type { Children } from '../vue-jsx-runtime';
 export const Transition = (props: TransitionProps & {
   children: Children
 }) => {
