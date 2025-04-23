@@ -1,0 +1,69 @@
+
+.nav {
+  color: var(--base);
+  height: var(--nav-height);
+  box-sizing: border-box;
+  padding: 0 1em;
+  background-color: var(--bg);
+  box-shadow: 0 0 4px #00000054;
+  position: relative;
+  z-index: 999;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 30px;
+
+}
+
+.nav h1 {
+  font-weight: 500;
+  display: inline-flex; 
+  place-items: center;
+}
+
+.navRight {
+  display: inline-flex;
+  align-items: center;
+}
+
+.app {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.dropdownExamples {
+  position: relative;
+}
+
+.examples {
+  position: absolute;
+  right: 0;
+  top: 40px;
+  background-color: var(--bg-light);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  list-style-type: none;
+  padding: 8px;
+  margin: 0;
+  width: 200px;
+  max-height: calc(100vh - 70px);
+  overflow-y: scroll;
+}
+
+.example {
+  padding: 0.5em;
+  cursor: pointer;
+}
+
+.examplesButton {
+  background-color: var(--bg);
+  color: var(--base);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.5em;
+  margin-left: 10px;
+  cursor: pointer;
+}

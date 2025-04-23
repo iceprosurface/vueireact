@@ -2,6 +2,7 @@ import {
   type ToRefs,
   type UnwrapRef,
   computed,
+  onMounted,
   reactive,
   ref,
   shallowRef,
@@ -25,7 +26,9 @@ import newSFCCode from './template/new.tsx?raw'
 
 export const importMapFile = 'import-map.json'
 export const tsconfigFile = 'tsconfig.json'
-
+export function getTsConfig() {
+  return JSON.stringify(tsconfig, undefined, 2)
+}
 export function useStore(
   {
     files = ref(Object.create(null)),
@@ -52,7 +55,7 @@ export function useStore(
   serializedState?: string,
 ): ReplStore {
   if (!builtinImportMap) {
-    ;({ importMap: builtinImportMap, vueVersion } = useVueImportMap({
+    ; ({ importMap: builtinImportMap, vueVersion } = useVueImportMap({
       vueVersion: vueVersion.value,
     }))
   }
@@ -342,12 +345,18 @@ export function useStore(
       template.value.welcomeSFC || welcomeSFCCode,
     )
   }
-
   if (serializedState) {
     deserialize(serializedState, false)
   } else {
     setDefaultFile()
   }
+  onMounted(() => {
+    if (serializedState) {
+      deserialize(serializedState, false)
+    } else {
+      setDefaultFile()
+    }
+  })
   if (!files.value[mainFile.value]) {
     mainFile.value = Object.keys(files.value)[0]
   }
@@ -504,7 +513,7 @@ export class File {
     public filename: string,
     public code = '',
     public hidden = false,
-  ) {}
+  ) { }
 
   get language() {
     if (this.filename.endsWith('.vue')) {
