@@ -21,15 +21,13 @@ export function useVueImportMap(
         normalizeDefaults(
           productionMode.value ? defaults.runtimeProd : defaults.runtimeDev,
         )) ||
-      `https://cdn.jsdelivr.net/npm/@vue/runtime-dom@${
-        vueVersion.value || currentVersion
+      `https://cdn.jsdelivr.net/npm/@vue/runtime-dom@${vueVersion.value || currentVersion
       }/dist/runtime-dom.esm-browser${productionMode.value ? `.prod` : ``}.js`
     const serverRenderer =
       (!vueVersion.value && normalizeDefaults(defaults.serverRenderer)) ||
-      `https://cdn.jsdelivr.net/npm/@vue/server-renderer@${
-        vueVersion.value || currentVersion
+      `https://cdn.jsdelivr.net/npm/@vue/server-renderer@${vueVersion.value || currentVersion
       }/dist/server-renderer.esm-browser.js`
-    const vueireactVersion = '0.1.3'
+    const vueireactVersion = VITE_APP_CORE_VERSION
     return {
       imports: {
         vue,

@@ -3,6 +3,8 @@ import dts from 'vite-plugin-dts'
 import base from './vite.preview.config'
 import fs from 'node:fs'
 import path from 'node:path'
+// read current @vue/runtime-core version
+const runtimeCoreVersion = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../core/package.json'), 'utf-8')).version
 
 const genStub: Plugin = {
   name: 'gen-stub',
@@ -51,6 +53,9 @@ export default mergeConfig(base, {
     ],
   },
   base: './',
+  define: {
+    VITE_APP_CORE_VERSION: JSON.stringify(runtimeCoreVersion),
+  },
   build: {
     target: 'esnext',
     minify: false,

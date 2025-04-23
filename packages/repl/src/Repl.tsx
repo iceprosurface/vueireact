@@ -72,7 +72,6 @@ function Repl(_props: Props & {
     splitPaneOptions: () => ({}),
     modelValue: true,
   })
-  debugger
 
   const autoSave = useVModel(props, 'modelValue', (event, value) => {
     props['onUpdate:modelValue']?.(value)

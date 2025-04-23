@@ -135,7 +135,6 @@ export function useStore(
 
     // compile rest of the files
     errors.value = []
-    debugger
     for (const [filename, file] of Object.entries(files.value)) {
       if (filename !== mainFile.value) {
         compileFile(store, file).then((errs) => errors.value.push(...errs))

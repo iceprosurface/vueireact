@@ -49,7 +49,6 @@ function MonacoFC(_props: {
   function emitChangeEvent() {
     props.onChange?.(editorInstance.getValue())
   }
-  debugger
   onMounted(() => {
     const theme = registerHighlighter()
     if (!containerRef.value) {
