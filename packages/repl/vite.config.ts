@@ -4,7 +4,7 @@ import base from './vite.preview.config'
 import fs from 'node:fs'
 import path from 'node:path'
 // read current @vue/runtime-core version
-const runtimeCoreVersion = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../core/package.json'), 'utf-8')).version
+const runtimeCoreVersion = JSON.parse(fs.readFileSync(path.resolve(__dirname, './package.json'), 'utf-8')).version
 
 const genStub: Plugin = {
   name: 'gen-stub',
