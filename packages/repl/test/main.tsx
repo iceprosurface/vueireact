@@ -6,7 +6,7 @@ import MonacoEditor from '../src/editor/MonacoEditor'
 // @ts-ignore
 import styles from './main.module.css'
 import './global.css'
-import { getTsConfig } from '../src/store'
+import { useExamples } from './examples/index'
 
 const window = globalThis.window as any
 window.process = { env: {} }
@@ -38,120 +38,7 @@ const App = {
     window.theme = theme
     const previewTheme = ref(false)
     window.previewTheme = previewTheme
-    const examples = [
-      {
-        name: 'Hello World',
-        setCode: () => {
-          store.setFiles({
-            'tsconfig.json': getTsConfig(),
-            'src/App.tsx': `import { ref } from 'vue'
-import { toVue } from '@vueireact/core'
-function Welcome() {
-  const msg = ref('Hello World!')
-  
-  return () => (
-    <div>
-      <h1>{msg.value}</h1>
-      <input 
-        value={msg.value} 
-        onInput={(e) => msg.value = (e.target as HTMLInputElement).value} 
-      />
-    </div>
-  )
-}
-
-export default toVue(Welcome)
-`
-          }, 'src/App.tsx')
-        }
-      },
-      {
-        name: 'Generic Component with children limited',
-        setCode: () => {
-          store.setFiles({
-            'tsconfig.json': getTsConfig(),
-            'src/App.tsx': `import { ref } from 'vue'
-import { toVue } from '@vueireact/core'
-function GenericComponent<T>(props: {
-    list: T[]
-    onListChange: (list: T[]) => void
-    children: {
-      item: (item: T, index: number) => JSX.Element;
-    }
-}) {
-  return () => (
-    <div>
-      <h1>{
-        props.list.map((item, index) => (props.children.item(item, index)))
-      }</h1>
-    </div>
-  )
-}
-
-function App() {
-  const list = ref([1, 2, 3]);
-  function addOneToListItem(index: number) {
-    const current = list.value[index]
-    list.value.splice(index, 1, current + 1)
-
-  }
-  function addItem() {
-    list.value.push(list.value.length + 1)
-  }
-  return () => (
-    <div>
-      <GenericComponent
-        list={list.value} 
-        onListChange={(v) => list.value = v} 
-      >
-        {
-          {
-            item: (item, index) => <div onClick={() => addOneToListItem(index)}>{item}</div>
-          }
-        }
-      </GenericComponent>
-      <button onClick={addItem}>Add</button>
-    </div>
-  )
-}
-
-export default toVue(App)
-`
-          }, 'src/App.tsx')
-        }
-      },
-      {
-        name: "defaultNamedSlot",
-        setCode: () => {
-          store.setFiles({
-            'tsconfig.json': getTsConfig(),
-            'src/App.tsx': `import { ref } from 'vue'
-import { toVue } from '@vueireact/core'
-const ComponentWithNameSlot = (props: {
-    children: (name: string) => JSX.Element
-}) => {
-  return () => (
-    <div>
-      <h1>{props.children('John')}</h1>
-    </div>
-  )
-}
-const App = () => {
-  return () => (
-    <div>
-      <ComponentWithNameSlot>
-        {(name: string) => <h1>{name}</h1>}
-      </ComponentWithNameSlot>
-    </div>
-  )
-}
-
-export default toVue(App)
-`
-          }, 'src/App.tsx')
-        }
-      }
-    ]
+    const examples = useExamples(store)
     const examplesVisible = ref(false)
     return () => <div class={styles.app}>
       <nav class={styles.nav}>
@@ -165,7 +52,10 @@ export default toVue(App)
             <ul class={styles.examples} style={{ display: examplesVisible.value ? 'block' : 'none' }}>
               {
                 examples.map(
-                  example => <li class={styles.example} onClick={() => example.setCode()} >
+                  example => <li class={styles.example} onClick={() => {
+                    example.setCode()
+                    examplesVisible.value = false
+                  }} >
                     <span>{example.name}</span>
                   </li>
                 )

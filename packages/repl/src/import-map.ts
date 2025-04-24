@@ -35,6 +35,7 @@ export function useVueImportMap(
         // https://cdn.jsdelivr.net/npm/@vueireact/core@latest/
         '@vueireact/core': `https://cdn.jsdelivr.net/npm/@vueireact/core@${vueireactVersion}/dist/index.js`,
         '@vueireact/core/jsx-runtime': `https://cdn.jsdelivr.net/npm/@vueireact/core@${vueireactVersion}/dist/jsx-runtime.js`,
+        'ts-pattern': 'https://cdn.jsdelivr.net/npm/ts-pattern@latest/dist/index.js',
       },
     }
   })

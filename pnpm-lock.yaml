@@ -106,6 +106,9 @@ importers:
       monaco-types:
         specifier: ^0.1.0
         version: 0.1.0
+      ts-pattern:
+        specifier: ^5.7.0
+        version: 5.7.0
     devDependencies:
       '@babel/standalone':
         specifier: ^7.26.9
@@ -2937,6 +2940,9 @@ packages:
 
   ts-interface-checker@0.1.13:
     resolution: {integrity: sha512-Y/arvbn+rrz3JCKl9C4kVNfTfSm2/mEp5FSz5EsZSANGPSlQrpRI5M4PKF+mJnE52jOO90PnPSc3Ur3bTQw0gA==}
+
+  ts-pattern@5.7.0:
+    resolution: {integrity: sha512-0/FvIG4g3kNkYgbNwBBW5pZBkfpeYQnH+2AA3xmjkCAit/DSDPKmgwC3fKof4oYUq6gupClVOJlFl+939VRBMg==}
 
   tsup@8.4.0:
     resolution: {integrity: sha512-b+eZbPCjz10fRryaAA7C8xlIHnf8VnsaRqydheLIqwG/Mcpfk8Z5zp3HayX7GaTygkigHl5cBUs+IhcySiIexQ==}
@@ -6262,6 +6268,8 @@ snapshots:
   trim-lines@3.0.1: {}
 
   ts-interface-checker@0.1.13: {}
+
+  ts-pattern@5.7.0: {}
 
   tsup@8.4.0(@microsoft/api-extractor@7.52.4(@types/node@22.14.1))(jiti@2.4.2)(postcss@8.5.3)(tsx@4.19.3)(typescript@5.8.2)(yaml@2.7.1):
     dependencies:

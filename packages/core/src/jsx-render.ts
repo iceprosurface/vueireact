@@ -1,5 +1,6 @@
 import { h, mergeProps, Fragment as VueFragment } from "vue";
 import { getFCVNode } from "./getFCVNode.js";
+import { Children } from "./vue-jsx-runtime";
 export type RenderType = (tag: any, props: any) => JSX.Element;
 export const childrenTypeKey = 'normalizedChildrenType';
 export const enum ChildrenType {
@@ -61,4 +62,4 @@ export const jsx: RenderType = (tag: any, props?: any): JSX.Element => {
 };
 export const jsxs: RenderType = jsx;
 
-export const Fragment = VueFragment as unknown as (setting: { children: JSX.Element[] | JSX.Element }) => JSX.Element;
+export const Fragment = VueFragment as unknown as (setting: { children: Children }) => JSX.Element;

@@ -87,6 +87,7 @@
   },
   "dependencies": {
     "monaco-editor": "^0.52.2",
-    "monaco-types": "^0.1.0"
+    "monaco-types": "^0.1.0",
+    "ts-pattern": "^5.7.0"
   }
 }
