@@ -52,7 +52,9 @@ export const jsx: RenderType = (tag: any, props?: any): JSX.Element => {
   }
   if (children) {
     const normalizedChildren = normalizeChildren(children);
-    mergedProps[childrenTypeKey] = normalizedChildren.type;
+    if (typeof component !== 'string') {
+      mergedProps[childrenTypeKey] = normalizedChildren.type;
+    }
     return h(component, mergedProps, normalizedChildren.value) as unknown as JSX.Element;
   }
   return h(component, mergedProps) as unknown as JSX.Element;

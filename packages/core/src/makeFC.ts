@@ -3,12 +3,18 @@ import { ChildrenType, childrenTypeKey } from "./jsx-render.js";
 export function makeFC<Props, SetupContext>(functionComponent: (props: Props, Ctx: SetupContext) => any): ReturnType<typeof defineComponent> {
   return defineComponent({
     inheritAttrs: false,
+    props: {
+      [childrenTypeKey]: {
+        type: String,
+        default: ChildrenType.Default
+      }
+    },
     setup(parentProps, ctx) {
       const attrs = ctx.attrs;
       const proxyProp = new Proxy(attrs, {
         get(target, prop) {
           if (prop === 'children') {
-            switch (Reflect.get(attrs, childrenTypeKey)) {
+            switch (Reflect.get(parentProps, childrenTypeKey)) {
               case ChildrenType.Default:
                 return ctx.slots?.default?.();
               case ChildrenType.Named:
