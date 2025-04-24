@@ -62,6 +62,10 @@ const App = {
               }
             </ul>
           </div>
+          {/** github link */}
+          <a href="https://github.com/iceprosurface/vueireact" style={{ marginLeft: '10px' }} target="_blank" rel="noopener noreferrer">
+            <img src="https://img.shields.io/badge/GitHub-vueireact-blue.svg" alt="GitHub" />
+          </a>
         </div>
       </nav >
       <Repl {...{
