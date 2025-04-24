@@ -359,7 +359,6 @@
         }
       })()
     </script>
-
     <!-- ES Module Shims: Import maps polyfill for modules browsers without import maps support (all except Chrome 89+) -->
     <script
       async
@@ -368,6 +367,14 @@
     <script type="importmap">
       <!--IMPORT_MAP-->
     </script>
+    <!-- UNOCSS -->
+    <script>
+      import { transformerCompileClass } from 'https://cdn.jsdelivr.net/npm/@unocss/transformer-compile-class@66.1.0-beta.12/dist/index.mjs'
+      window.__unocss = {
+        transformers: [transformerCompileClass()],
+      }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@unocss/runtime/uno.global.js"></script>
   </head>
   <body>
     <!--PREVIEW-OPTIONS-PLACEHOLDER-HTML-->
