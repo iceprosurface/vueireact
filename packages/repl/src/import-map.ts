@@ -15,28 +15,28 @@ export function useVueImportMap(
 
   const productionMode = ref(false)
   const vueVersion = ref<string | null>(defaults.vueVersion || null)
+  const host = 'https://cdn.jsdelivr.net/npm'
   const importMap = computed<ImportMap>(() => {
     const vue =
       (!vueVersion.value &&
         normalizeDefaults(
           productionMode.value ? defaults.runtimeProd : defaults.runtimeDev,
         )) ||
-      `https://cdn.jsdelivr.net/npm/@vue/runtime-dom@${vueVersion.value || currentVersion
+      `${host}/@vue/runtime-dom@${vueVersion.value || currentVersion
       }/dist/runtime-dom.esm-browser${productionMode.value ? `.prod` : ``}.js`
     const serverRenderer =
       (!vueVersion.value && normalizeDefaults(defaults.serverRenderer)) ||
-      `https://cdn.jsdelivr.net/npm/@vue/server-renderer@${vueVersion.value || currentVersion
+      `${host}/@vue/server-renderer@${vueVersion.value || currentVersion
       }/dist/server-renderer.esm-browser.js`
     const vueireactVersion = VITE_APP_CORE_VERSION
     return {
       imports: {
         vue,
         'vue/server-renderer': serverRenderer,
-        // https://cdn.jsdelivr.net/npm/@vueireact/core@latest/
-        '@vueireact/core': `https://cdn.jsdelivr.net/npm/@vueireact/core@${vueireactVersion}/dist/index.js`,
-        '@vueireact/core/jsx-runtime': `https://cdn.jsdelivr.net/npm/@vueireact/core@${vueireactVersion}/dist/jsx-runtime.js`,
-        'ts-pattern': 'https://cdn.jsdelivr.net/npm/ts-pattern@latest/dist/index.js',
-        'ant-design-vue': 'https://esm.sh/ant-design-vue@latest/es/index.js',
+        '@vueireact/core': `${host}/@vueireact/core@${vueireactVersion}/dist/index.js`,
+        '@vueireact/core/jsx-runtime': `${host}/@vueireact/core@${vueireactVersion}/dist/jsx-runtime.js`,
+        'ts-pattern': `${host}/ts-pattern@latest/dist/index.js`,
+        'ant-design-vue': `${host}/ant-design-vue@latest/es/index.js`,
       },
     }
   })
