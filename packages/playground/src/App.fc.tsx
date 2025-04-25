@@ -1,5 +1,5 @@
 import { ref } from "vue";
-import { Button } from 'ant-design-vue';
+import { Alert } from 'ant-design-vue';
 
 export function HelloWorld(props: {
   name: string, onClick: () => void; children: {
@@ -8,13 +8,13 @@ export function HelloWorld(props: {
 }) {
   return () => <>
     {props.children.named()}
-    <Button type="primary" onClick={props.onClick}>Click me</Button>
+    <Alert type="success"></Alert>
   </>;
 }
 function App() {
   const name = ref('World');
   const handleClick = () => {
-    name.value = 'Vueireact';
+    name.value = 'Vue3';
   }
   return () => <HelloWorld name={name.value} onClick={handleClick}>
     {

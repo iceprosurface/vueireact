@@ -42,7 +42,7 @@ declare global {
     type LibraryManagedAttributes<C, P> = C extends JSXElementConstructor<infer U, { expose: infer Exposed }>
       ? P & {
         ref?: Ref<Exposed> | ((ref: Exposed) => void);
-      } & ('children' extends keyof P ? P : {} & { children?: Children })
+      } & ('children' extends keyof P ? {} : { children?: Children })
       : P;
     export interface IntrinsicElements extends NativeElements {
       // allow arbitrary elements
