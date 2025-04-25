@@ -11,16 +11,17 @@
   },
   "dependencies": {
     "@vitejs/plugin-vue-jsx": "^4.1.2",
+    "ant-design-vue": "^4.2.6",
     "vite-plugin-inspect": "^11.0.0",
     "vue": "^3.5.13"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.2.1",
     "@vue/tsconfig": "^0.7.0",
+    "@vueireact/core": "workspace:*",
+    "@vueireact/vite-plugin-vueireact": "workspace:*",
     "typescript": "~5.7.2",
     "vite": "^6.2.6",
-    "@vueireact/vite-plugin-vueireact": "workspace:*",
-    "vue-tsc": "^2.2.4",
-    "@vueireact/core": "workspace:*"
+    "vue-tsc": "^2.2.4"
   }
 }
