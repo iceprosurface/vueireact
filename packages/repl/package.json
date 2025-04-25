@@ -1,6 +1,6 @@
 {
   "name": "@vueireact/repl",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "type": "module",
   "main": "dist/ssr-stub.js",
   "module": "dist/vue-repl.js",
