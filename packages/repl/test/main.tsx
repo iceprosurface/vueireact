@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/prefer-ts-expect-error */
-import { createApp, h, ref, watchEffect } from 'vue'
+import { createApp, ref, watchEffect } from 'vue'
 import { type OutputModes, Repl, useStore, useVueImportMap } from '../src'
 // @ts-ignore
 import MonacoEditor from '../src/editor/MonacoEditor'

@@ -18,7 +18,8 @@ function SplitPane(props: SplitPaneProps) {
   const previewRef = inject(injectKeyPreviewRef)!
 
   // mobile only
-  const { store, layoutReverse, splitPaneOptions } = inject(injectKeyProps)!
+  const { store, splitPaneOptions } = inject(injectKeyProps)!
+  const layoutReverse = ref(false)
 
 
   const state = reactive({
@@ -158,7 +159,7 @@ function SplitPane(props: SplitPaneProps) {
   return () => (
     <div
       ref={containerRef}
-      class={`split-pane ${state.dragging ? 'dragging' : ''} ${store.value.showOutput ? 'show-output' : ''} ${layoutReverse ? 'reverse' : ''} ${isVertical.value ? 'vertical' : ''}`}
+      class={`split-pane ${state.dragging ? 'dragging' : ''} ${store.value.showOutput ? 'show-output' : ''} ${layoutReverse.value ? 'reverse' : ''} ${isVertical.value ? 'vertical' : ''}`}
       style={containerStyle}
     >
       <div

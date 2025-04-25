@@ -40,7 +40,7 @@ declare global {
       children: {};
     }
     type LibraryManagedAttributes<C, P> = C extends JSXElementConstructor<infer U, { expose: infer Exposed }>
-      ? U & {
+      ? P & {
         ref?: Ref<Exposed> | ((ref: Exposed) => void);
       } & ('children' extends keyof U ? {} : { children?: Children })
       : P;
