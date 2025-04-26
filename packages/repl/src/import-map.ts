@@ -36,8 +36,7 @@ export function useVueImportMap(
         '@vueireact/core': `${host}/@vueireact/core@${vueireactVersion}/dist/index.js`,
         '@vueireact/core/jsx-runtime': `${host}/@vueireact/core@${vueireactVersion}/dist/jsx-runtime.js`,
         'ts-pattern': `${host}/ts-pattern@latest/dist/index.js`,
-        // jsdelivr is not working for ant-design-vue, use esm.sh instead
-        'ant-design-vue': `https://esm.sh/ant-design-vue@latest/es/index.js`,
+        'ant-design-vue': `${host}/ant-design-vue@4.2.6/dist/antd.esm.min.js`,
       },
     }
   })
