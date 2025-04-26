@@ -21,7 +21,7 @@ function normalizeChildren(children: any): {
       }
     }
   }
-  if (Array.isArray(children)) {
+  if (Array.isArray(children) || children.__v_isVNode) {
     return {
       type: ChildrenType.Default,
       value: {

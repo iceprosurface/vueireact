@@ -1,15 +1,22 @@
 import { ref } from "vue";
-import { Alert } from 'ant-design-vue';
+import { Button } from 'ant-design-vue';
 
 export function HelloWorld(props: {
   name: string, onClick: () => void; children: {
     named: () => JSX.Element
   }
 }) {
-  return () => <>
-    {props.children.named()}
-    <Alert type="success"></Alert>
+  return () => {
+    const children = props.children;
+    const vnode = children.named()
+    const span = <span>1111</span>;
+    return <>
+    {vnode}
+    <Button type="primary" onClick={props.onClick}>
+      {span}
+    </Button>
   </>;
+  };
 }
 function App() {
   const name = ref('World');

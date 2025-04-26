@@ -6,7 +6,7 @@ export function makeFC<Props, SetupContext>(functionComponent: (props: Props, Ct
     props: {
       [childrenTypeKey]: {
         type: String,
-        default: ChildrenType.Default
+        default: undefined
       }
     },
     setup(parentProps, ctx) {
