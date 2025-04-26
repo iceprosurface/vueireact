@@ -1,6 +1,6 @@
 {
   "name": "@vueireact/vite-plugin-vueireact",
-  "version": "0.1.15",
+  "version": "0.1.16",
   "description": "Vite plugin for Vue-IReact",
   "author": "iceprosurface",
   "private": false,
