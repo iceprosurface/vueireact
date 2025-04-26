@@ -1,5 +1,6 @@
 import { ref } from "vue";
 import { Button } from 'ant-design-vue';
+import { toVue } from "@vueireact/core";
 
 export function HelloWorld(props: {
   name: string, onClick: () => void; children: {
@@ -11,7 +12,9 @@ export function HelloWorld(props: {
     const vnode = children.named()
     const span = <span>1111</span>;
     return <>
-    {vnode}
+    <div>1
+      {vnode}
+    </div>
     <Button type="primary" onClick={props.onClick}>
       {span}
     </Button>
@@ -23,13 +26,13 @@ function App() {
   const handleClick = () => {
     name.value = 'Vue3';
   }
-  return () => <HelloWorld name={name.value} onClick={handleClick}>
+  return () => <div><HelloWorld name={name.value} onClick={handleClick}>
+  {
     {
-      {
-        named: () => <div>Hello1</div>,
-      }
+      named: () => <div>Hello1</div>,
     }
-  </HelloWorld>;
+  }
+</HelloWorld></div>;
 }
 
-export default App;
+export default toVue(App);

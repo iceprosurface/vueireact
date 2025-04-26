@@ -43,6 +43,13 @@ function normalizeChildren(children: any): {
 }
 export const jsx: RenderType = (tag: any, props?: any): JSX.Element => {
   let component = tag
+  if (typeof component === 'string') {
+    // string is a component name
+    // maybe a built-in component or html element
+    // use default render
+    const { children, ...rest } = props || {};
+    return h(component, rest, children) as unknown as JSX.Element;
+  }
   if (typeof tag === 'function') {
     component = getFCVNode(tag);
   }
