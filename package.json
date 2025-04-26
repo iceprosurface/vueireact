@@ -12,7 +12,7 @@
     "publish-ci": "tsx scripts/publish-ci.ts",
     "release": "tsx scripts/release.ts",
     "dev": "pnpm -r dev",
-    "test": "vitest"
+    "test": "vitest --run"
   },
   "engines": {
     "node": ">=18.17.0",
