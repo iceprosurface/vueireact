@@ -7,6 +7,8 @@ import AttributeBindings from "./AttributeBindings?raw"
 import ConditionalsAndLoops from "./ConditionalsAndLoops?raw"
 import FormBindings from "./FormBindings?raw"
 import AntDesignVue from "./AntDesignVue?raw"
+import withModifiers from "./withModifiers?raw"
+import withDirectives from "./withDirectives?raw"
 function createExample(name: string, code: string, store: ReplStore) {
   return {
     name,
@@ -27,4 +29,6 @@ export const useExamples = (store: ReplStore) => [
   createExample('Conditionals and Loops', ConditionalsAndLoops, store),
   createExample('Form Bindings', FormBindings, store),
   createExample('Ant Design Vue', AntDesignVue, store),
+  createExample('withModifiers', withModifiers, store),
+  createExample('withDirectives', withDirectives, store),
 ]
