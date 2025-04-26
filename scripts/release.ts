@@ -5,7 +5,9 @@ import { glob } from 'tinyglobby'
 import { $ } from 'zx'
 
 try {
-  await $`pnpm -w run test`
+  console.log('Running tests')
+  const testResult = await $`pnpm -w run test`;
+  console.log(testResult.stdout)
   const packages = await glob(['package.json', './packages/*/package.json'], { expandDirectories: false })
 
   console.log('Bumping versions in packages:', packages.join(', '), '\n')
