@@ -52,7 +52,7 @@ const App = {
             <ul class={styles.examples} style={{ display: examplesVisible.value ? 'block' : 'none' }}>
               {
                 examples.map(
-                  example => <li class={styles.example} onClick={() => {
+                  example => <li key={example.name} class={styles.example} onClick={() => {
                     example.setCode()
                     examplesVisible.value = false
                   }} >

@@ -1,6 +1,6 @@
-import {defineComponent} from "vue";
+import {defineComponent, PropType} from "vue";
 import {ChildrenType, childrenTypeKey} from "./jsx-render.js";
-
+export const FC_CALL_STACK = 'FC_CALL_STACK'
 export function makeFC<Props, SetupContext>(functionComponent: (props: Props, Ctx: SetupContext) => any): ReturnType<typeof defineComponent> {
   return defineComponent({
     name: functionComponent.name,

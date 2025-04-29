@@ -1,7 +1,7 @@
 import { h, isVNode, mergeProps, Fragment as VueFragment } from "vue";
 import { getFCVNode } from "./getFCVNode.js";
 import { Children } from "./vue-jsx-runtime";
-export type RenderType = (tag: any, props: any) => JSX.Element;
+export type RenderType = (tag: any, props: any, key: string) => JSX.Element;
 export const childrenTypeKey = 'normalizedChildrenType';
 export const enum ChildrenType {
   Default = 'default',
@@ -43,20 +43,23 @@ function normalizeChildren(children: any): {
     }
   }
 }
-export const jsx: RenderType = (tag: any, props?: any): JSX.Element => {
+export const jsx: RenderType = (tag: any, props?: any, key?: string): JSX.Element => {
   let component = tag
   if (typeof component === 'string') {
     // string is a component name
     // maybe a built-in component or html element
     // use default render
     const { children, ...rest } = props || {};
-    return h(component, rest, children) as unknown as JSX.Element;
+    return h(component, { ...rest, key }, children) as unknown as JSX.Element;
   }
   if (typeof tag === 'function') {
     component = getFCVNode(tag);
   }
   const { children, ...rest } = props || {};
   const mergedProps = mergeProps(rest);
+  if (key) {
+    mergedProps.key = key;
+  }
   if (component === Fragment) {
     return h(component, mergedProps, children) as unknown as JSX.Element;
   }
