@@ -4,13 +4,13 @@ import { toVue } from "@vueireact/core";
 
 export function HelloWorld(props: {
   name: string, onClick: () => void; children: {
-    named: () => JSX.Element
+    named: (data: number) => JSX.Element
   }
 }) {
   const value = ref('')
   return () => {
     const children = props.children;
-    const vnode = children.named()
+    const vnode = children.named(1)
     const span = <span>1111</span>;
     return <>
       <div>1

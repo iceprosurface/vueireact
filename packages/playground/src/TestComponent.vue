@@ -1,7 +1,7 @@
 <template>
   <HelloWorldVue name="test" @click="onClick">
-    <template #named>
-      <div>Hello World</div>
+    <template #named="data">
+      {{ data }}
     </template>
   </HelloWorldVue>
 </template>
