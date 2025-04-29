@@ -12,7 +12,7 @@ function App() {
     const vnode = withDirectives(<button>click here</button>, [
       [vTest, ]
     ]);
-    return <div>click directive</div>
+    return <div>{vnode}</div>
   }
 }
 

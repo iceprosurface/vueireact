@@ -4,3 +4,4 @@ dist
 docs/.vitepress/cache/
 
 .vscode
+.idea

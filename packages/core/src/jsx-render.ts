@@ -1,4 +1,4 @@
-import { h, mergeProps, Fragment as VueFragment } from "vue";
+import { h, isVNode, mergeProps, Fragment as VueFragment } from "vue";
 import { getFCVNode } from "./getFCVNode.js";
 import { Children } from "./vue-jsx-runtime";
 export type RenderType = (tag: any, props: any) => JSX.Element;
@@ -21,7 +21,7 @@ function normalizeChildren(children: any): {
       }
     }
   }
-  if (Array.isArray(children) || children.__v_isVNode) {
+  if (Array.isArray(children) || isVNode(children)) {
     return {
       type: ChildrenType.Default,
       value: {
@@ -38,7 +38,9 @@ function normalizeChildren(children: any): {
   }
   return {
     type: ChildrenType.Unknown,
-    value: children
+    value: {
+      default: () => children
+    }
   }
 }
 export const jsx: RenderType = (tag: any, props?: any): JSX.Element => {
