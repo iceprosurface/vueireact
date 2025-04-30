@@ -21,18 +21,9 @@ npm install @vueireact/core
 
 ## 配置
 
-### 1. 从 Vite 配置中移除 Vue 插件（可选）
+VueIReact 是一个完全的 typescript 库，他没有任何编译魔法，所以你可以使用任何你喜欢的构建工具来集成到你的项目。
 
-```js
-// vite.config.ts
-import vue from '@vitejs/plugin-vue'
-
-export default defineConfig({
-  plugins: [], // 从这里移除 vue()
-})
-```
-
-### 2. 配置 TypeScript
+### 1. 配置 TypeScript
 
 ```json
 // tsconfig.json
@@ -42,6 +33,30 @@ export default defineConfig({
     "jsxImportSource": "@vueireact/core"
   }
 }
+```
+
+### 1.1 构建工具
+
+你可以使用任何你喜欢的构建工具，但是你需要确保他完全支持 typescript jsx 的转换。
+
+以下构建工具被推荐，并且不需要任何除开 `tsconfig.json` 的配置：
+
+- [esbuild](https://esbuild.github.io/)
+- [vite](https://vite.dev/)
+- [swc](https://swc.rs/)
+- [tsup](https://tsup.egoist.dev/)
+- [tsdown](https://tsdown.dev/)
+- [tsc](https://www.typescriptlang.org/docs/handbook/compiler-options.html)
+
+### 1.2 从 Vite 配置中移除 Vue 插件（可选）
+
+```js
+// vite.config.ts
+import vue from '@vitejs/plugin-vue'
+
+export default defineConfig({
+  plugins: [], // 从这里移除 vue()
+})
 ```
 
 ## 基本用法

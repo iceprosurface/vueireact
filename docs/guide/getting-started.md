@@ -21,18 +21,10 @@ npm install @vueireact/core
 
 ## Configuration
 
-### 1. Remove Vue plugin from Vite config (Optional)
+VueIReact is a fully typescript library, and not have any compiler magic, so that it's easy to integrate with any build tool you like.
 
-```js
-// vite.config.ts
-import vue from '@vitejs/plugin-vue'
 
-export default defineConfig({
-  plugins: [], // Remove vue() from here
-})
-```
-
-### 2. Configure TypeScript
+### 1. Configure TypeScript
 
 ```json
 // tsconfig.json
@@ -42,6 +34,31 @@ export default defineConfig({
     "jsxImportSource": "@vueireact/core"
   }
 }
+```
+
+### 1.1 build tools
+
+you can use any build tool you like, but you need to ensure that fully support typescript jsx transform.
+
+following build tools are recommended without any configuration except for `tsconfig.json`:
+
+- [esbuild](https://esbuild.github.io/)
+- [vite](https://vite.dev/)
+- [swc](https://swc.rs/)
+- [tsup](https://tsup.egoist.dev/)
+- [tsdown](https://tsdown.dev/)
+- [tsc](https://www.typescriptlang.org/docs/handbook/compiler-options.html)
+
+
+### 2. Remove Vue plugin from Vite config (Optional)
+
+```js
+// vite.config.ts
+import vue from '@vitejs/plugin-vue'
+
+export default defineConfig({
+  plugins: [], // Remove vue() from here
+})
 ```
 
 ## Basic Usage
